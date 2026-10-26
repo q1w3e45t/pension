@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="기술보증기금 퇴직연금 안내영상, Q&A, 자가진단, 제도선택">
+<meta property="og:title" content="퇴직연금 대모험">
+<meta property="og:description" content="안내영상 · Q&A · 나에게 맞는 퇴직급여 찾기 · 제도선택">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>퇴직연금 대모험</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&family=Press+Start+2P&display=swap">
+<style>
+/* Layout: handheld-console bezel holds one game screen; title → start menu → four modes. Single deliberate retro theme. */
+:root{
+  --stage:#141a33; --bezel:#252d57; --bezel-hi:#3a4580; --line:#3a4580;
+  --sky:#d7e6f2; --grass:#a9cf8a; --floor:#c8b48e; --table:#8a5a3b;
+  --ink:#1b2142; --paper:#fbfcf7; --paper2:#eef1f8; --muted:#5b6487; --soft:#9aa4d6; --accent:#2f6fe0; --warn:#e2563b; --gold:#f2c14e; --ok:#3f9e6a;
+  --kr:"Do Hyeon","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --read:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --px:"Press Start 2P","Courier New",monospace;
+  color-scheme:dark;
+}
+html,body{min-height:100%}
+body{background:var(--stage);color:var(--paper);font-family:var(--kr);display:flex;flex-direction:column;align-items:center;gap:12px;padding-block:16px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-sizing:border-box}
+.bezel{width:100%;max-width:760px;background:var(--bezel);border-radius:18px 18px 48px 18px;padding:18px;box-sizing:border-box;box-shadow:inset 0 0 0 3px var(--bezel-hi),0 18px 40px rgba(0,0,0,.45)}
+@media (max-width:480px){.bezel{padding:10px;border-radius:12px 12px 30px 12px}}
+.bezel-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;font-family:var(--px);font-size:9px;letter-spacing:.12em;color:var(--soft)}
+.led{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--warn);margin-right:8px;box-shadow:0 0 8px var(--warn)}
+.mute{font-family:var(--px);font-size:9px;background:none;border:2px solid var(--soft);color:var(--soft);border-radius:4px;padding:5px 8px;cursor:pointer}
+button:focus-visible,.screen:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.screen{position:relative;width:100%;aspect-ratio:4/3;max-width:100%;overflow:hidden;border-radius:6px;background:var(--sky);color:var(--ink);cursor:pointer;user-select:none;-webkit-user-select:none;box-shadow:inset 0 0 0 4px #0e1226}
+@media (max-width:560px){.screen{aspect-ratio:3/4}}
+.scene{position:absolute;inset:0}
+.bg{position:absolute;inset:0;background:linear-gradient(var(--sky) 0 58%,var(--grass) 58% 100%)}
+.bg::after{content:"";position:absolute;left:0;right:0;top:58%;height:6px;background:repeating-linear-gradient(90deg,#8fbf6c 0 8px,transparent 8px 16px)}
+.lab{position:absolute;inset:0;background:linear-gradient(#e4e8ef 0 50%,var(--floor) 50% 100%)}
+.lab::before{content:"";position:absolute;left:0;right:0;top:50%;height:100%;background:repeating-linear-gradient(90deg,transparent 0 46px,rgba(0,0,0,.08) 46px 48px),repeating-linear-gradient(0deg,transparent 0 46px,rgba(0,0,0,.08) 46px 48px)}
+.shelf{position:absolute;top:10%;height:26%;width:22%;background:#9b6b48;border:4px solid var(--ink);box-shadow:inset 0 -10px 0 #7a5236}
+.shelf.l{left:5%}.shelf.r{right:5%}
+.shelf i{position:absolute;left:8%;right:8%;height:5px;background:var(--ink)}
+/* title */
+.title-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4%;text-align:center;padding:0 6%}
+.eyebrow{font-family:var(--px);font-size:clamp(8px,1.6vw,11px);letter-spacing:.2em;color:var(--muted)}
+.logo{font-family:var(--kr);font-size:clamp(40px,9vw,76px);line-height:1;color:var(--gold);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:5px 5px 0 var(--ink);text-wrap:balance}
+.sub{font-size:clamp(18px,3.4vw,26px);background:var(--ink);color:var(--paper);padding:4px 14px;border-radius:2px}
+.press{font-family:var(--px);font-size:clamp(10px,2vw,14px);color:var(--ink);animation:blink 1s steps(1) infinite}
+.title-mons{display:flex;gap:6%;justify-content:center;width:100%}
+@keyframes blink{50%{opacity:0}}
+canvas.spr{display:block;image-rendering:pixelated}
+.bob{animation:bob 1.2s steps(2) infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}
+.prof{position:absolute;left:50%;top:12%;transform:translateX(-50%);width:28%;max-width:190px}
+.prof canvas,.mon-pop canvas{width:100%;height:auto}
+.mon-pop{position:absolute;left:50%;top:12%;transform:translateX(-50%);width:30%;max-width:200px;animation:pop .5s steps(5)}
+@keyframes pop{0%{transform:translateX(-50%) scale(0)}100%{transform:translateX(-50%) scale(1)}}
+.wm{position:absolute;right:3%;bottom:3%;font-size:clamp(11px,1.9vw,14px);color:var(--ink);opacity:.55;pointer-events:none;z-index:2}
+.wm.up{bottom:calc(3% + 26% + 10px)}
+/* dialogue */
+.dlg{position:absolute;left:3%;right:3%;bottom:3%;min-height:26%;background:var(--paper);border:4px solid var(--ink);box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 6px var(--accent);border-radius:6px;padding:4% 5%;box-sizing:border-box;font-size:clamp(17px,3.3vw,26px);line-height:1.45;color:var(--ink)}
+.dlg .who{position:absolute;top:-16px;left:14px;background:var(--ink);color:var(--paper);font-size:clamp(13px,2.2vw,16px);padding:2px 10px;border-radius:3px}
+.dlg .arrow{position:absolute;right:16px;bottom:10px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid var(--warn);animation:bob .8s steps(2) infinite}
+/* boxes */
+.card{position:absolute;left:6%;right:6%;top:6%;max-height:88%;overflow:auto;background:var(--paper);border:4px solid var(--ink);border-radius:6px;padding:5% 6%;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;align-items:center;cursor:default;text-align:center}
+.card h2{margin:0;font-size:clamp(21px,3.8vw,30px);font-weight:400;text-wrap:balance}
+.card .note{font-size:clamp(14px,2.4vw,17px);color:var(--muted);margin:0}
+.field{font-family:var(--kr);font-size:clamp(24px,4.6vw,34px);border:3px solid var(--ink);border-radius:4px;padding:6px 10px;width:min(260px,100%);text-align:center;background:#fff;color:var(--ink);box-sizing:border-box}
+.btn{font-family:var(--kr);font-size:clamp(17px,3vw,22px);background:var(--ink);color:var(--paper);border:0;border-radius:4px;padding:8px 20px;cursor:pointer;box-shadow:0 4px 0 #000;text-decoration:none;display:inline-block;text-align:center}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #000}
+.btn.ghost{background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:none}
+.btn.gold{background:var(--gold);color:var(--ink);box-shadow:0 4px 0 #9a7418}
+.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+/* start menu */
+.menu{position:absolute;left:6%;right:6%;top:6%;background:var(--paper);border:4px solid var(--ink);box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 6px var(--accent);border-radius:6px;padding:3% 3%;box-sizing:border-box;display:flex;flex-direction:column;cursor:default}
+.menu-h{font-family:var(--px);font-size:clamp(8px,1.5vw,10px);letter-spacing:.18em;color:var(--muted);padding:2px 10px 8px 34px}
+.menu button{font-family:var(--kr);background:none;border:0;color:var(--ink);text-align:left;cursor:pointer;padding:9px 10px 9px 34px;position:relative;display:flex;align-items:center;gap:10px;border-radius:3px}
+.menu button .no{font-family:var(--px);font-size:clamp(10px,1.8vw,13px);color:var(--muted);flex:none}
+.menu button .lb{font-size:clamp(19px,3.6vw,28px);flex:1;min-width:0}
+.menu button.on{background:var(--paper2)}
+.menu button.on::before{content:"▶";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:clamp(12px,2vw,16px);color:var(--warn);animation:nudge .6s steps(2) infinite}
+@keyframes nudge{50%{transform:translate(3px,-50%)}}
+.stamp{font-family:var(--px);font-size:clamp(7px,1.3vw,9px);letter-spacing:.08em;color:var(--ok);border:2px solid var(--ok);padding:3px 4px;border-radius:2px;transform:rotate(-6deg);flex:none}
+/* select */
+.table{position:absolute;left:14%;right:14%;top:44%;height:14%;background:var(--table);border:4px solid var(--ink);border-radius:6px;box-shadow:0 10px 0 #5e3b25}
+.balls{position:absolute;left:14%;right:14%;top:31%;display:flex;justify-content:space-around}
+.ballwrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.ball{width:clamp(44px,9vw,70px);aspect-ratio:1;border-radius:50%;border:4px solid var(--ink);padding:0;cursor:pointer;position:relative;background:linear-gradient(var(--c) 0 46%,var(--ink) 46% 54%,#fff 54%)}
+.ball::after{content:"";position:absolute;left:50%;top:50%;width:26%;height:26%;transform:translate(-50%,-50%);border-radius:50%;background:#fff;border:3px solid var(--ink)}
+.ball.on{transform:translateY(-10px);animation:wiggle .5s steps(2) infinite}
+@keyframes wiggle{50%{transform:translateY(-10px) rotate(-10deg)}}
+.rec{position:absolute;bottom:calc(100% + 6px);white-space:nowrap;font-size:clamp(12px,2vw,15px);background:var(--warn);color:#fff;padding:1px 7px;border-radius:3px;animation:bob .8s steps(2) infinite}
+.sel-top{position:absolute;top:5%;left:4%;right:4%;text-align:center;font-size:clamp(16px,3vw,22px)}
+.info{position:absolute;left:3%;right:3%;bottom:3%;background:var(--paper);border:4px solid var(--ink);border-radius:6px;padding:3% 4%;display:grid;grid-template-columns:auto 1fr;gap:4%;align-items:center;cursor:default;box-sizing:border-box}
+.info .pic{width:clamp(64px,15vw,120px)}
+.info .pic canvas{width:100%;height:auto}
+.info .txt{min-width:0;display:flex;flex-direction:column;gap:5px}
+.info .nm{font-size:clamp(20px,3.8vw,30px);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.type{font-size:clamp(12px,2vw,15px);color:#fff;padding:1px 8px;border-radius:3px;background:var(--tc)}
+.info .kind{font-size:clamp(13px,2.2vw,17px);color:var(--muted)}
+.info ul{margin:0;padding:0;list-style:none;font-size:clamp(14px,2.4vw,18px);line-height:1.35}
+.info li::before{content:"▸ ";color:var(--accent)}
+.stats{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center;font-size:clamp(12px,2vw,15px)}
+.bar{height:8px;background:#dde1ec;border:2px solid var(--ink);position:relative}
+.bar b{position:absolute;inset:0 auto 0 0;background:var(--sc)}
+.info .act{grid-column:1/-1;display:flex;justify-content:flex-end;gap:8px}
+@media (max-width:560px){.info{grid-template-columns:1fr;padding:3%}.info .pic{display:none}.info ul{font-size:15px}.table{top:25%;height:8%;left:8%;right:8%}.balls{top:15%;left:8%;right:8%}.sel-top{display:none}.shelf{display:none}}
+.choice{position:absolute;right:5%;bottom:33%;background:var(--paper);border:4px solid var(--ink);border-radius:6px;display:flex;flex-direction:column;cursor:default;max-width:90%;z-index:3}
+.choice button{font-family:var(--kr);font-size:clamp(17px,3vw,23px);background:none;border:0;padding:8px 24px 8px 34px;text-align:left;cursor:pointer;color:var(--ink);position:relative}
+.choice button.on::before{content:"▶";position:absolute;left:12px;font-size:.7em;top:50%;transform:translateY(-50%)}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;animation:flash .6s steps(3);pointer-events:none;z-index:5}
+@keyframes flash{from{opacity:1}to{opacity:0}}
+/* quiz */
+.quiz{position:absolute;left:5%;right:5%;top:5%;bottom:5%;display:flex;flex-direction:column;gap:3%;cursor:default}
+.quiz-top{display:flex;align-items:center;gap:10px}
+.quiz-top canvas{width:clamp(52px,10vw,80px);height:auto;flex:none}
+.bubble{flex:1;min-width:0;background:var(--paper);border:3px solid var(--ink);border-radius:6px;padding:8px 12px;font-size:clamp(15px,2.8vw,21px);position:relative}
+.bubble::before{content:"";position:absolute;left:-12px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right-color:var(--ink);border-right-width:9px}
+.pips{display:flex;gap:6px;justify-content:center}
+.pips i{width:clamp(22px,4vw,34px);height:8px;background:#c9cfe0;border:2px solid var(--ink)}
+.pips i.done{background:var(--accent)}.pips i.now{background:var(--gold)}
+.qcard{flex:1;min-height:0;background:var(--paper);border:4px solid var(--ink);box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 6px var(--accent);border-radius:6px;padding:5% 6%;display:flex;flex-direction:column;justify-content:center;gap:12px;text-align:center;overflow:auto}
+.qno{font-family:var(--px);font-size:clamp(11px,2vw,15px);color:var(--warn)}
+.qtext{font-size:clamp(21px,4.2vw,34px);line-height:1.35;text-wrap:balance}
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:4%}
+.yn button{font-family:var(--kr);font-size:clamp(22px,4.4vw,34px);padding:10px;border:4px solid var(--ink);border-radius:6px;cursor:pointer;background:var(--paper);color:var(--ink);box-shadow:0 5px 0 var(--ink)}
+.yn button.on{background:var(--gold)}
+.yn button:active{transform:translateY(4px);box-shadow:0 1px 0 var(--ink)}
+/* result card */
+.res{position:absolute;inset:4%;background:var(--paper);border:4px solid var(--ink);border-radius:6px;padding:4% 5%;box-sizing:border-box;overflow:auto;cursor:default;display:flex;flex-direction:column;gap:12px}
+.res-head{display:flex;align-items:center;gap:14px}
+.res-head canvas{width:clamp(64px,13vw,104px);height:auto;flex:none}
+.res-head h2{margin:0;font-weight:400;font-size:clamp(24px,4.6vw,36px);line-height:1.1}
+.res-head .tag2{font-size:clamp(13px,2.2vw,16px);color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips span{font-size:clamp(13px,2.2vw,16px);border:2px solid var(--ink);border-radius:3px;padding:1px 8px}
+.chips span.hot{background:var(--warn);border-color:var(--warn);color:#fff}
+.guide{font-family:var(--read);font-size:clamp(15px,2.6vw,19px);line-height:1.6;background:var(--paper2);border-left:5px solid var(--accent);padding:10px 12px;margin:0}
+.gw{position:relative;padding-top:12px}
+.who2{position:absolute;top:0;left:10px;background:var(--ink);color:var(--paper);font-size:clamp(12px,2vw,14px);padding:1px 8px;border-radius:3px}
+.gw .guide{font-family:var(--kr);padding-top:16px}
+.fine{font-family:var(--read);font-size:clamp(13px,2.2vw,16px);line-height:1.55;color:var(--muted);margin:0;padding:0;list-style:none}
+.fine li{padding-left:1.1em;text-indent:-1.1em}
+.fine li::before{content:"○ "}
+/* video */
+.tv{position:absolute;inset:0;background:#0b0f22;display:flex;flex-direction:column;cursor:default}
+.tv-head{display:flex;align-items:center;gap:10px;padding:8px 12px;color:var(--paper);font-size:clamp(16px,2.8vw,21px)}
+.tv-head .ch{font-family:var(--px);font-size:9px;color:var(--gold);border:1px solid var(--gold);padding:3px 5px;border-radius:2px;flex:none}
+.tv-body{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 10px}
+.tv video{width:100%;max-height:100%;background:#000;border:3px solid #2a3363;border-radius:4px}
+.tv-foot{display:flex;justify-content:flex-end;gap:8px;padding:10px 12px}
+/* Q&A notebook */
+.qa{position:absolute;inset:0;background:#0b0f22;display:flex;flex-direction:column;cursor:default}
+.qa-head{display:flex;align-items:center;gap:10px;padding:10px 12px 0;color:var(--paper)}
+.qa-head h2{margin:0;font-weight:400;font-size:clamp(19px,3.4vw,26px);flex:1;min-width:0}
+.qa-head .btn{font-size:15px;padding:4px 12px}
+.tabs{display:flex;gap:4px;padding:8px 12px 0;overflow-x:auto}
+.tabs button{font-family:var(--kr);font-size:clamp(13px,2.3vw,17px);white-space:nowrap;background:#252d57;color:var(--soft);border:2px solid var(--line);border-bottom:0;border-radius:4px 4px 0 0;padding:5px 10px;cursor:pointer}
+.tabs button.on{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.qa-body{flex:1;min-height:0;overflow:auto;background:var(--paper);margin:0 12px 12px;border-radius:0 4px 4px 4px;padding:10px 12px;color:var(--ink);font-family:var(--read)}
+.qa-intro{font-size:clamp(13px,2.3vw,16px);line-height:1.6;color:var(--muted);margin:0 0 10px}
+.qa-item{border-bottom:2px dashed #c9cfe0}
+.qa-item>button{font-family:var(--kr);font-size:clamp(16px,2.9vw,21px);width:100%;text-align:left;background:none;border:0;padding:10px 26px 10px 0;cursor:pointer;color:var(--ink);position:relative;line-height:1.35}
+.qa-item>button::after{content:"▼";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--accent)}
+.qa-item.open>button::after{content:"▲"}
+.qa-a{display:none;padding:0 0 12px;font-size:clamp(14px,2.5vw,18px);line-height:1.65}
+.qa-item.open .qa-a{display:block}
+.qa-a p{margin:0 0 4px}
+.qa-a .qsub{padding-left:1em;font-size:.95em;color:#333a5c;background:none}
+.qa-tbl{overflow-x:auto;margin-top:6px}
+.qa-tbl table{color:var(--ink);font-family:var(--read);border-collapse:collapse;min-width:440px;width:100%;font-size:clamp(13px,2.2vw,15px);line-height:1.45}
+.qa-tbl th,.qa-tbl td{border:1px solid #9aa4c4;padding:6px 7px;vertical-align:top;text-align:left}
+.qa-tbl th{background:#e6eaf5;font-weight:400;white-space:nowrap}
+.qa-tbl td div{padding-left:1em;text-indent:-1em}
+.hint{font-size:14px;color:var(--soft);text-align:center;max-width:760px;line-height:1.6}
+.hint kbd{font-family:var(--px);font-size:9px;border:1px solid var(--soft);border-radius:3px;padding:2px 5px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="bezel">
+  <div class="bezel-top"><span><span class="led"></span>PENSION QUEST</span><button class="mute" id="mute" type="button">SOUND ON</button></div>
+  <div class="screen" id="screen" tabindex="0" aria-live="polite"></div>
+</div>
+<div class="hint">화면을 누르면 다음으로 넘어가요 · <kbd>↑</kbd><kbd>↓</kbd> 고르기 · <kbd>ENTER</kbd> 결정</div>
+
+<script>
+/* ===== 설정: 네이버 폼 링크가 나오면 여기에 넣기 ===== */
+const FORM_URL = 'https://naver.me/5imVzoWG';
+const VIDEO_SRC = 'video.mp4';
+
+/* ===== pixel sprites ===== */
+const PAL={k:'#1b2142',w:'#ffffff',b:'#a8743f',B:'#7d5229',l:'#f0d2a8',y:'#f2c14e',o:'#d99a1e',s:'#9fb3c8',S:'#6f87a3',m:'#3d4f6b',r:'#e2563b',R:'#b63a24',f:'#f79b3a',F:'#ffd85a',p:'#f3a3b5',c:'#f7f7f2',e:'#f1c9a0',g:'#5b6487',n:'#2f6fe0'};
+const SPR={
+ moagom:["................","..kk........kk..",".kbbk......kbbk.",".kbBkkkkkkkkBbk.","..kbbbbbbbbbbk..",".kbbbbbbbbbbbbk.",".kbbkwbbbbkwbbk.",".kbbkkbbbbkkbbk.",".kbpbbbllbbbpbk.","..kbbblkklbbbk..","...kkbbllbbkk...","..kbbkyyyykbbk..",".kbbkyyoyyykbbk.",".kbbkyyyyyykbbk.","..kkbkkyykkbkk..","....kkk..kkk...."],
+ dundun:["................",".....kkkkkk.....","...kkSsssssSkk..","..kSsSSssSSsSk..",".kSsssssssssssk.",".kssssssssssssk.","kssskwssssskwssk","kssskkssssskkssk","kspssssssssspssk",".ksssskmmksssk..",".kSSSSSSSSSSSSk.",".kSmSmSmSmSmSSk.","..kSSSSSSSSSSk..","..kssk....kssk..","..kkkk....kkkk..","................"],
+ gullim:[".......kk.......","......kFk..k....","..k..kFFkkFk....",".kFk.kFfFkFFk...",".kFFkkffffFfk...","..kffffffffffk..",".kfffrffffrfffk.",".kffrrrffrrrffk.","kfffrkwffrkwfffk","kfffrkkffrkkfffk","kffpffffffffpffk",".kfffffkkfffffk.",".kRfffffffffffRk","..kRRfffffffRRk.","...kkRRRRRRRkk..",".....kkkkkkk...."],
+ prof:["................",".....kkkkkk.....","....kccccccck...","...kcckkkkcck...","...keeeeeeeek...","...kekkeekkek...","...keeeeeeeek...","....keekkeek....","....kkeeeekk....","...kcccnnccck...","..kcccknnkccck..","..kccckggkccck..","..kekcckkcckek..","...kccccccccck..","....kggk.kggk...","....kkkk.kkkk..."]
+};
+function sprite(name,scale=8){const g=SPR[name],c=document.createElement('canvas');c.className='spr';c.width=16*scale;c.height=16*scale;const x=c.getContext('2d');g.forEach((row,y)=>[...row].forEach((ch,i)=>{if(PAL[ch]){x.fillStyle=PAL[ch];x.fillRect(i*scale,y*scale,scale,scale)}}));return c}
+
+/* ===== korean particles ===== */
+const jong=w=>{const c=w.charCodeAt(w.length-1);return(c>=0xAC00&&c<=0xD7A3)?(c-0xAC00)%28:0};
+const J=(w,a,b)=>w+(jong(w)?a:b);
+const RO=w=>{const j=jong(w);return w+(j===0||j===8?'로':'으로')};
+
+/* ===== partners ===== */
+const MONS={
+ moagom:{id:'moagom',name:'퇴직금',sub:'퇴직할 때 한 번에 받는 돈',type:'바위',tc:'#8a6a45',ball:'#c98a4b',
+  lines:['평소엔 조용히 자다가 퇴사하는 날 한 번에 깨어난다','30일분 평균임금 × 근속연수','따로 신경 쓸 것 없이 회사가 지급을 책임짐'],
+  stats:[['안정성',4],['성장성',2],['내가 할 일',1]],after:'퇴직금은 퇴사하는 날 한 번에 받는단다. 근속연수가 쌓일수록 든든해지지!',
+  guide:'임금피크제가 적용될 때와 그 뒤로 매년 중간정산을 받을 수 있고, 법정사유에 해당해도 중간정산이 가능하단다. 다만 퇴직연금으로 바꾼 뒤에는 퇴직금으로 돌아올 수 없으니 잘 기억해 두거라!'},
+ dundun:{id:'dundun',name:'DB형',sub:'확정급여형 퇴직연금',type:'강철',tc:'#5f7896',ball:'#6f87a3',
+  lines:['회사가 대신 키워 주는 든든한 파트너','받을 금액이 미리 정해짐 (퇴직 직전 임금 기준)','월급이 꾸준히 오를수록 함께 강해짐'],
+  stats:[['안정성',4],['성장성',3],['내가 할 일',1]],after:'DB형은 회사가 함께 키워 준단다. 월급이 오를수록 더 든든해지지!',
+  guide:'퇴직금과 받는 돈은 같으면서, 회사 밖에 안전하게 쌓인단다. 임금피크제 전에 DC형으로 바꾸면 퇴직급여가 줄어드는 것도 막을 수 있지!'},
+ gullim:{id:'gullim',name:'DC형',sub:'확정기여형 퇴직연금',type:'불꽃',tc:'#d4572f',ball:'#e2563b',
+  lines:['트레이너가 직접 키우는 만큼 성장한다','회사가 매년 연봉의 1/12 이상을 넣어 줌','운용은 내 몫, 결과에 따라 커지거나 작아짐'],
+  stats:[['안정성',2],['성장성',5],['내가 할 일',5]],after:'DC형은 네가 직접 키워야 한단다. 잘 굴리면 크게 자랄 거야!',
+  guide:'매년 쌓이는 부담금을 자네가 직접 굴린단다. 법정사유에 해당하면 중간에 꺼내 쓸 수도 있지만, 임금피크제는 그 사유가 아니란다. DC형에 가입하면 DB형으로 바꿀 수 없고, 굴리는 솜씨에 따라 퇴직급여가 달라지니 명심하거라!'}
+};
+const ORDER=['moagom','dundun','gullim'];
+
+/* ===== 자가진단표 (엑셀 '진단표' 시트 그대로) ===== */
+const DIAG=[
+ {q:'만 57세에 임금피크제가 적용되면, 퇴직급여를 중간정산 받아 쓸 계획이 있느냐?',y:'moagom',n:1},
+ {q:'승진이나 호봉승급으로 앞으로 월급이 꾸준히 오를 것 같으냐?',y:2,n:'gullim'},
+ {q:'퇴직급여를 직접 굴려서 임금상승률보다 높은 수익을 낼 자신이 있느냐?',y:'gullim',n:3},
+ {q:'퇴직 전에 집 구입, 전세, 의료비 때문에 퇴직급여를 꺼내 쓸 일이 생길 것 같으냐?',y:'moagom',n:4},
+ {q:'퇴직급여가 회사 밖 금융기관에 안전하게 쌓이는 게 중요하냐?',y:'dundun',n:'moagom'}
+];
+const DIAG_NOTES=['퇴직연금은 1년 이상 재직 직원이 가입 대상입니다.','DB→DC 전환은 가능하나 DC→DB, 퇴직연금→퇴직금 전환은 불가합니다.'];
+function diagnose(ans){let i=0;for(const a of ans){const nx=a?DIAG[i].y:DIAG[i].n;if(typeof nx==='string')return nx;i=nx}return null}
+
+/* ===== Q&A (퇴직연금제도_Q&A_v1 원문, 작성 메모 제외) ===== */
+const QA_INTRO='퇴직연금제도 도입을 위한 수요조사에 앞서, 직원 여러분의 이해를 돕고자 제도 관련 주요 질의응답을 안내드립니다. 이번 설문조사는 예상 가입인원을 파악하여 퇴직연금사업자 규모 및 필요예산을 산정하기 위한 기초자료로 활용될 예정이오니, 아래 내용을 참고하시어 설문에 응답하여 주시기 바랍니다.';
+const QA=[
+ {cat:'퇴직연금제도 일반',items:[
+  ['Q1. 퇴직연금제도란 무엇인가요?',['A. 퇴직연금제도는 회사가 직원의 퇴직급여 재원을 매년 외부 금융기관(퇴직연금사업자)에 적립하고, 직원이 퇴직할 때 이를 일시금 또는 연금으로 지급받는 제도입니다.']],
+  ['Q2. 퇴직연금은 모든 직원이 가입 대상인가요?',['A. 퇴직연금제도는 1년 이상 재직한 직원을 대상으로 합니다.']],
+  ['Q3. 퇴직연금제도는 기존 퇴직금제도와 무엇이 다른가요?',['A. 적립·지급 방식, 수급권 보호, 부가서비스 측면에서 차이가 있습니다.','- 적립·지급 : 퇴직금은 회사 내부에 적립 후 퇴직 시 회사가 지급하나, 퇴직연금은 외부 금융기관이 적립금을 운용하고 일시금 또는 연금으로 지급','- 지급액 : DB형은 퇴직금제도와 지급액이 동일하나, DC형은 운용 성과에 따라 개인별로 금액 상이','- 부가서비스 : 퇴직연금 가입자는 퇴직연금사업자를 통한 금융상품 운용, 은퇴설계, 절세 전략 등 교육·컨설팅 및 우대금리, 수수료 감면 등 혜택 적용']],
+  ['Q4. 퇴직연금 적립금은 안전한가요?',['A. 안전하게 보호됩니다. 적립금은 법에 따라 외부 금융기관에 별도로 적립·운용되므로, 회사 사정과 관계없이 직원의 퇴직급여 수급권이 보호됩니다.']]
+ ]},
+ {cat:'제도 유형(DB형·DC형) 관련',items:[
+  ['Q5. 퇴직연금에는 어떤 종류가 있나요?',['A. 퇴직연금은 확정급여형(DB형)과 확정기여형(DC형) 두 가지 유형으로 구분됩니다.','- 확정급여형(DB형) : 퇴직 시 받을 금액이 기존 퇴직금과 동일하게 미리 확정되어 있으며, 적립금 운용은 회사가 책임','- 확정기여형(DC형) : 회사가 매년 일정 금액을 직원 개인계좌에 적립하고, 직원이 직접 운용하며 그 결과를 책임']],
+  ['Q6. DB형과 DC형의 장단점은 무엇인가요?',['A. 직원 입장에서 본 유형별 장단점은 아래와 같습니다.','#TABLE']],
+  ['Q7. 어떤 경우에 DB형 또는 DC형을 선택하는 것이 좋은가요?',['A. 개인의 상황에 따라 다르며, 일반적으로 아래 기준을 참고하시기 바랍니다.','- 확정급여형(DB형) : 매년 임금상승률이 높고 승진 등으로 임금 상승이 예상되는 경우, 안정적인 퇴직급여를 선호하는 경우','- 확정기여형(DC형) : 임금상승률이 낮거나 임금피크제 적용이 예정된 경우, 직접 운용을 통해 추가 수익을 기대하는 경우']],
+  ['Q8. 가입 후 퇴직연금 유형을 변경할 수 있나요?',['A. DB형에서 DC형으로 변경은 가능합니다. 다만, DC형에서 DB형으로의 변경은 불가하니 유의하시기 바랍니다.']],
+  ['Q9. 퇴직연금제도로 변경한 후 다시 퇴직금제도로 돌아갈 수 있나요?',['A. 불가합니다. 퇴직연금제도로 변경되면 적립금이 외부 금융기관으로 이전되므로, 다시 퇴직금제도로 전환할 수 없습니다.']]
+ ]},
+ {cat:'적립금 운용 및 추가납입 관련',items:[
+  ['Q10. DC형 적립금은 어떻게 운용하나요?',['A. 가입자 본인이 직접 운용합니다. 퇴직연금사업자의 안내 및 컨설팅을 참고하여 예금, 펀드 등 금융상품 중 본인의 투자성향에 맞는 상품을 선택하시면 됩니다.']],
+  ['Q11. 가입한 운용상품을 변경할 수 있나요?',['A. 가능합니다. DC형은 퇴직연금사업자의 온라인 시스템 등을 통해 가입한 상품을 변경할 수 있습니다.','- 다만, 상품에 따라 중도해지 시 불이익(예: 정기예금 중도해지 시 수익률 하락)이 있을 수 있으므로 신중히 결정하시기 바랍니다.']],
+  ['Q12. 운용수익이 낮거나 손실이 발생하면 어떻게 되나요?',['A. DB형은 운용성과와 관계없이 정해진 퇴직급여를 지급받으나, DC형은 본인의 운용성과에 따라 퇴직급여가 달라지며, 원리금보장형 상품을 선택하면 안정적이나 기대수익률은 낮을 수 있습니다.']],
+  ['Q13. 퇴직연금 계좌에 개인적으로 추가 납입할 수 있나요?',['A. DC형만 가능합니다. 연금저축, IRP와 합산하여 연간 1,800만원까지 추가 납입할 수 있으며, 연말정산 시 연 900만원 한도로 세액공제를 받을 수 있습니다.']]
+ ]},
+ {cat:'퇴직연금 인출',items:[
+  ['Q14. 퇴직연금은 언제 받을 수 있나요?',['A. 퇴직할 때 일시금 또는 연금으로 수령할 수 있습니다. 퇴직급여를 IRP 계좌로 이전하여 연금으로 수령하면 세제 혜택을 받을 수 있습니다.']],
+  ['Q15. 퇴직연금을 중간에 인출할 수 있나요?',['A. 퇴직 시 수령이 원칙이나, DC형은 법정사유에 해당하면 중도인출이 가능합니다. DB형은 중도인출이 불가하며, DC형으로 전환한 후 가능합니다. 또한, ‘임금피크제’를 중간정산 사유로 인정하는 퇴직금과 달리 퇴직연금제도에서는 임금피크제를 사유로 퇴직급여를 중도인출할 수 없습니다.','중도인출 법정사유 (DC형)','- 무주택자가 본인 명의로 주택을 구입하는 경우','- 무주택자가 주거 목적으로 전세금 또는 임차보증금을 부담하는 경우 (재직 중 1회)','- 6개월 이상 요양이 필요한 본인·배우자·부양가족의 의료비 (연간 임금총액의 12.5% 초과 시)','- 신청일 기준 5년 이내 파산선고 또는 개인회생절차 개시 결정을 받은 경우','- 천재지변 등 재난으로 피해를 입은 경우']]
+ ]}
+];
+const QA_TABLE={
+ DB:{pro:['기존 퇴직금과 동일하여 퇴직급여 예상 가능','사외 적립으로 퇴직급여 수급권 보장','다양한 금융교육, 부가서비스 이용 가능','임금상승률이 높은 경우 유리'],con:['임금피크제 등으로 퇴직 전 임금이 감소시 퇴직급여도 함께 감소','개인 추가납입(세액공제) 및 중도인출 불가','* DC형 전환 시 법정사유 중도인출 가능']},
+ DC:{pro:['개인 투자성향에 따라 자유롭게 운용 가능','개인 추가납입 및 세액공제 가능','임금상승률 정체 시 DB형 대비 유리','운용수익률이 높을 경우 유리','사외 적립으로 퇴직급여 수급권 보장','다양한 금융교육, 부가서비스 이용 가능','법정사유 해당 시 중도인출 가능'],con:['운용성과에 따라 퇴직급여 변동','운용손실 발생 시 퇴직급여 감소','임금피크 전입 시 중도인출 불가']}
+};
+
+/* ===== progress (이 기기에만 저장되는 편의 기능) ===== */
+const PKEY='pq-progress-v3';
+let P={clear:{},name:'',rec:null,pick:null};
+try{const v=localStorage.getItem(PKEY);if(v)P=Object.assign(P,JSON.parse(v))}catch(e){}
+function saveP(){try{localStorage.setItem(PKEY,JSON.stringify(P))}catch(e){}}
+
+/* ===== sound ===== */
+let ac=null,muted=false;
+function tone(f,d=.05,t=0,v=.05){if(muted||!ac)return;const o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=f;o.connect(g);g.connect(ac.destination);const s=ac.currentTime+t;o.start(s);g.gain.setValueAtTime(v,s);g.gain.exponentialRampToValueAtTime(.0001,s+d);o.stop(s+d+.02)}
+const blip=()=>tone(880,.03,0,.025);
+const sel=()=>{tone(660,.06);tone(990,.08,.06)};
+const jingle=()=>[523,659,784,1047,0,784,1047].forEach((f,i)=>f&&tone(f,.16,i*.13));
+const ding=()=>{tone(1047,.1);tone(1319,.14,.1)};
+function audioOn(){if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}}
+document.getElementById('mute').onclick=e=>{e.stopPropagation();muted=!muted;e.target.textContent=muted?'SOUND OFF':'SOUND ON'};
+
+/* ===== engine ===== */
+const scr=document.getElementById('screen');
+let typing=null,skip=null,onAdvance=null,keyMap=null;
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstElementChild}
+function backdrop(kind){return kind==='lab'?el('<div class="lab"><div class="shelf l"><i style="top:33%"></i><i style="top:66%"></i></div><div class="shelf r"><i style="top:33%"></i><i style="top:66%"></i></div></div>'):el('<div class="bg"></div>')}
+function scene(bg){clearInterval(typing);typing=null;skip=null;onAdvance=null;keyMap=null;const s=el('<div class="scene"></div>');if(bg)s.append(backdrop(bg));scr.replaceChildren(s);return s}
+function stop(node){node.addEventListener('click',e=>e.stopPropagation());return node}
+function watermark(s,up){const w=el('<div class="wm" aria-hidden="true">제작지원: 조민아 차장</div>');if(up)w.classList.add('up');s.append(w)}
+function profIn(s){const p=el('<div class="prof bob"></div>');p.append(sprite('prof',10));s.append(p)}
+function monIn(s,id){const p=el('<div class="mon-pop"></div>');const c=sprite(id,10);c.classList.add('bob');p.append(c);s.append(p)}
+
+function say(s,text,who='연금박사',after){
+  const box=el('<div class="dlg"><span class="t"></span></div>');
+  if(who){const w=el('<span class="who"></span>');w.textContent=who;box.prepend(w)}
+  s.append(box);const t=box.querySelector('.t');let i=0;
+  const fin=()=>{clearInterval(typing);typing=null;t.textContent=text;if(!after&&!box.querySelector('.arrow'))box.append(el('<span class="arrow"></span>'));after&&after()};
+  typing=setInterval(()=>{t.textContent=text.slice(0,++i);if(i%2)blip();if(i>=text.length)fin()},34);
+  skip=fin;
+}
+/* lines: 문자열 배열. opts: {bg, fig:'prof'|monId|null, wm} */
+function talk(lines,opts,done){
+  let i=0;
+  const show=()=>{const s=scene(opts.bg||'lab');
+    if(opts.fig==='prof')profIn(s);else if(opts.fig)monIn(s,opts.fig);
+    if(opts.wm)watermark(s,true);
+    const ln=lines[i];say(s,typeof ln==='function'?ln():ln,opts.who===undefined?'연금박사':opts.who);
+    onAdvance=()=>{if(typing){skip();return}if(++i<lines.length)show();else done()}};
+  show();
+}
+/* 선택지 상자 (Pokémon 식 ▶ 커서) */
+function choiceBox(s,opts,onPick){
+  const ch=stop(el('<div class="choice"></div>'));let cur=0;
+  const bs=opts.map((o,i)=>{const b=document.createElement('button');b.type='button';b.textContent=o;if(!i)b.classList.add('on');b.onmouseenter=()=>{cur=i;mark()};b.onclick=()=>pick(i);ch.append(b);return b});
+  const mark=()=>bs.forEach((b,i)=>b.classList.toggle('on',i===cur));
+  const pick=i=>{sel();onPick(i)};
+  s.append(ch);
+  keyMap={up:()=>{cur=(cur+bs.length-1)%bs.length;mark();blip()},down:()=>{cur=(cur+1)%bs.length;mark();blip()},ok:()=>pick(cur)};
+}
+
+/* ===== 타이틀 ===== */
+function title(){
+  const s=scene('bg');
+  const w=el('<div class="title-wrap"><div class="eyebrow">RETIREMENT PENSION</div><div class="logo">퇴직연금<br>대모험</div><div class="sub">나의 파트너 고르기</div><div class="title-mons"></div><div class="press">PRESS START</div></div>');
+  ORDER.forEach((id,i)=>{const c=sprite(id,5);c.classList.add('bob');c.style.animationDelay=(i*.2)+'s';c.style.width='clamp(48px,11vw,80px)';c.style.height='auto';w.querySelector('.title-mons').append(c)});
+  s.append(w);watermark(s,false);
+  onAdvance=()=>{audioOn();sel();menu()};
+  keyMap={ok:()=>onAdvance()};
+}
+
+/* ===== 메뉴 ===== */
+const MENU=[
+ {k:'video',label:'퇴직연금 안내영상',run:()=>videoMode()},
+ {k:'qa',label:'퇴직연금 Q&A',run:()=>qaMode()},
+ {k:'diag',label:'나에게 맞는 퇴직급여는?',run:()=>diagMode()},
+ {k:'form',label:'제도선택하기',run:()=>formMode()}
+];
+let menuCur=0;
+function menu(){
+  const s=scene('bg');
+  const m=stop(el('<div class="menu" role="menu"><div class="menu-h">MENU</div></div>'));
+  const bs=MENU.map((it,i)=>{const b=el(`<button type="button" role="menuitem"><span class="no">${i+1}</span><span class="lb"></span></button>`);b.querySelector('.lb').textContent=it.label;
+    if(P.clear[it.k])b.append(el('<span class="stamp">CLEAR</span>'));
+    b.onmouseenter=()=>{menuCur=i;mark()};b.onclick=()=>go(i);m.append(b);return b});
+  const mark=()=>bs.forEach((b,i)=>b.classList.toggle('on',i===menuCur));mark();
+  const go=i=>{menuCur=i;sel();MENU[i].run()};
+  s.append(m);
+  const first=!Object.keys(P.clear).length;
+  say(s,first?'무엇부터 해 보겠느냐? 처음이라면 1번부터 차례대로 해 보는 걸 추천하마.':'다음은 무엇을 해 보겠느냐?','연금박사',()=>{});
+  onAdvance=()=>{if(typing)skip()};
+  keyMap={up:()=>{menuCur=(menuCur+3)%4;mark();blip()},down:()=>{menuCur=(menuCur+1)%4;mark();blip()},ok:()=>go(menuCur)};
+}
+function clear(k){P.clear[k]=true;saveP()}
+
+/* ===== 1. 안내영상 ===== */
+function videoMode(){
+  const s=scene();
+  const tv=stop(el(`<div class="tv"><div class="tv-head"><span class="ch">CH.1</span><span>기링이 선배의 퇴직연금 이야기</span></div>
+    <div class="tv-body"><video controls playsinline preload="metadata"></video></div>
+    <div class="tv-foot"><button class="btn ghost" type="button">메뉴로 돌아가기</button></div></div>`));
+  const v=tv.querySelector('video');v.src=VIDEO_SRC;
+  v.addEventListener('ended',()=>{clear('video');ding()});
+  v.addEventListener('timeupdate',()=>{if(v.duration&&v.currentTime/v.duration>.9&&!P.clear.video)clear('video')});
+  tv.querySelector('.btn').onclick=()=>{v.pause();sel();menu()};
+  s.append(tv);
+  const p=v.play();if(p&&p.catch)p.catch(()=>{});
+  keyMap={esc:()=>{v.pause();menu()}};
+}
+
+/* ===== 2. Q&A ===== */
+let qaTab=0;
+function qaMode(){
+  const s=scene();
+  const qa=stop(el(`<div class="qa"><div class="qa-head"><h2>연금박사의 Q&amp;A 수첩</h2><button class="btn gold" type="button">메뉴로</button></div><div class="tabs" role="tablist"></div><div class="qa-body"></div></div>`));
+  const tabs=qa.querySelector('.tabs'),body=qa.querySelector('.qa-body');
+  const draw=()=>{
+    tabs.replaceChildren(...QA.map((c,i)=>{const b=document.createElement('button');b.type='button';b.textContent=c.cat;b.setAttribute('role','tab');if(i===qaTab)b.classList.add('on');b.onclick=()=>{qaTab=i;blip();draw();body.scrollTop=0};return b}));
+    body.replaceChildren();
+    if(qaTab===0){const p=document.createElement('p');p.className='qa-intro';p.textContent=QA_INTRO+' (’26.10月, 인사부)';body.append(p)}
+    QA[qaTab].items.forEach(([q,a])=>{
+      const it=el('<div class="qa-item"><button type="button" aria-expanded="false"></button><div class="qa-a"></div></div>');
+      const b=it.querySelector('button');b.textContent=q;
+      const box=it.querySelector('.qa-a');
+      a.forEach(line=>{
+        if(line==='#TABLE'){box.append(qaTable());return}
+        const p=document.createElement('p');if(line.startsWith('- ')){p.className='qsub';p.textContent='- '+line.slice(2)}else p.textContent=line;box.append(p)});
+      b.onclick=()=>{const o=it.classList.toggle('open');b.setAttribute('aria-expanded',o);blip()};
+      body.append(it)});
+  };
+  draw();
+  qa.querySelector('.qa-head .btn').onclick=()=>{clear('qa');sel();menu()};
+  s.append(qa);
+  keyMap={esc:()=>{clear('qa');menu()}};
+}
+function qaTable(){
+  const w=el('<div class="qa-tbl"><table><thead><tr><th>구분</th><th>장 점</th><th>단 점</th></tr></thead><tbody></tbody></table></div>');
+  const tb=w.querySelector('tbody');
+  [['DB형',QA_TABLE.DB],['DC형',QA_TABLE.DC]].forEach(([k,v])=>{const tr=document.createElement('tr');const th=document.createElement('th');th.textContent=k;tr.append(th);
+    [v.pro,v.con].forEach(list=>{const td=document.createElement('td');list.forEach(x=>{const d=document.createElement('div');d.textContent=x.startsWith('*')?'  '+x:'✓ '+x;td.append(d)});tr.append(td)});tb.append(tr)});
+  return w;
+}
+
+/* ===== 3. 나에게 맞는 퇴직급여는? ===== */
+let D={name:'',ans:[],rec:null,pick:'dundun'};
+function diagMode(){
+  D={name:P.name||'',ans:[],rec:null,pick:'dundun'};
+  talk(['연금의 세계에 온 것을 환영한다!','나는 이 세계에서 퇴직연금을 연구하는 연금박사라고 한다.',"이 세계에는 '퇴직급여'라 불리는 신기한 친구들이 살고 있지.",'그런데… 자네 이름이 뭐였더라?'],{bg:'bg',fig:'prof',wm:true},nameEntry);
+}
+function nameEntry(){
+  const s=scene('bg');
+  const card=stop(el(`<form class="card" novalidate><h2>이름을 입력하세요</h2><p class="note">게임 속에서만 쓰여요. 어디에도 저장되지 않아요.</p>
+    <input class="field" id="playerName" maxlength="8" autocomplete="off" aria-label="이름" placeholder="기보"><button class="btn" type="submit">결정</button></form>`));
+  s.append(card);const inp=card.querySelector('input');inp.value=D.name;
+  setTimeout(()=>{try{inp.focus({preventScroll:true})}catch(e){}},60);
+  card.addEventListener('submit',e=>{e.preventDefault();D.name=inp.value.replace(/\s/g,'')||'기보';P.name=D.name;saveP();sel();
+    talk([`그래, ${D.name}! 기다리고 있었다.`,'자네에게 꼭 맞는 파트너를 찾아 주마.','내 질문에 예, 아니오로 답해 보거라. 많아야 다섯 문제란다!'],{bg:'lab',fig:'prof'},()=>ask(0))});
+}
+function ask(i){
+  const s=scene('lab');
+  const q=stop(el(`<div class="quiz"><div class="quiz-top"></div><div class="pips"></div><div class="qcard"><div class="qno">Q${i+1}</div><div class="qtext"></div></div><div class="yn"><button type="button" data-v="1">예</button><button type="button" data-v="0">아니오</button></div></div>`));
+  const top=q.querySelector('.quiz-top');top.append(sprite('prof',6));
+  const bub=el('<div class="bubble"></div>');bub.textContent=['첫 번째 질문이다!','두 번째 질문이다.','세 번째 질문이다.','네 번째 질문이다.','마지막 질문이다!'][i];top.append(bub);
+  q.querySelector('.pips').replaceChildren(...DIAG.map((_,k)=>{const d=document.createElement('i');if(k<i)d.className='done';if(k===i)d.className='now';return d}));
+  q.querySelector('.qtext').textContent=DIAG[i].q;
+  const bs=[...q.querySelectorAll('.yn button')];let cur=-1;
+  const mark=()=>bs.forEach((b,k)=>b.classList.toggle('on',k===cur));
+  const answer=v=>{sel();D.ans=D.ans.slice(0,i);D.ans.push(v);const nx=v?DIAG[i].y:DIAG[i].n;if(typeof nx==='string'){D.rec=nx;reveal()}else ask(nx)};
+  bs.forEach((b,k)=>{b.onclick=()=>answer(k===0)});
+  s.append(q);
+  keyMap={left:()=>{cur=0;mark();blip()},right:()=>{cur=1;mark();blip()},up:()=>{cur=0;mark();blip()},down:()=>{cur=1;mark();blip()},ok:()=>{if(cur>=0)answer(cur===0)}};
+}
+function reveal(){
+  const m=MONS[D.rec];P.rec=D.rec;saveP();
+  talk(['흠… 자네의 대답을 들어 보니…'],{bg:'lab',fig:'prof'},()=>{
+    const s=scene('lab');monIn(s,m.id);s.append(el('<div class="flash"></div>'));jingle();
+    say(s,`자네에게는 ${J(m.name,'이','가')} 잘 어울리겠구나!`);
+    onAdvance=()=>{if(typing){skip();return}
+      talk(['테이블 위의 볼 중에서 파트너를 골라 보거라.','내 추천과 다른 친구를 골라도 괜찮단다. 자네의 선택이 가장 중요하지!'],{bg:'lab',fig:'prof'},()=>{D.pick=D.rec;drawSelect()})};
+  });
+}
+function drawSelect(confirm=false){
+  const s=scene('lab');s.append(el('<div class="table"></div>'));
+  s.append(el('<div class="sel-top">볼을 눌러 파트너를 확인하세요</div>'));
+  const row=el('<div class="balls"></div>');
+  ORDER.forEach(id=>{const m=MONS[id];const w=el('<div class="ballwrap"></div>');
+    if(id===D.rec)w.append(el('<span class="rec">박사 추천</span>'));
+    const b=el('<button class="ball" type="button"></button>');b.style.setProperty('--c',m.ball);b.setAttribute('aria-label',m.name+(id===D.rec?' (박사 추천)':''));if(id===D.pick)b.classList.add('on');
+    b.onclick=e=>{e.stopPropagation();if(D.pick===id&&!confirm)ask2();else{D.pick=id;blip();drawSelect()}};w.append(b);row.append(w)});
+  s.append(row);
+  const m=MONS[D.pick];
+  function ask2(){sel();drawSelect(true)}
+  if(!confirm){
+    const info=stop(el('<div class="info"><div class="pic"></div><div class="txt"><div class="nm"><span></span><span class="type"></span></div><div class="kind"></div><ul></ul><div class="stats"></div></div><div class="act"><button class="btn" type="button">이 파트너로 정하기</button></div></div>'));
+    info.querySelector('.pic').append(sprite(m.id,8));
+    info.querySelector('.nm span').textContent=m.name;
+    const ty=info.querySelector('.type');ty.textContent=m.type+' 타입';ty.style.setProperty('--tc',m.tc);
+    info.querySelector('.kind').textContent=m.sub;
+    m.lines.forEach(t=>{const li=document.createElement('li');li.textContent=t;info.querySelector('ul').append(li)});
+    const sg=info.querySelector('.stats');
+    m.stats.forEach(([k,v])=>{const a=document.createElement('span');a.textContent=k;const bar=el('<div class="bar"><b></b></div>');bar.querySelector('b').style.width=(v*20)+'%';bar.style.setProperty('--sc',k==='내가 할 일'?'#f2c14e':'#2f6fe0');sg.append(a,bar)});
+    info.querySelector('.act .btn').onclick=ask2;
+    s.append(info);onAdvance=ask2;
+    const mv=d=>{const i=(ORDER.indexOf(D.pick)+d+3)%3;D.pick=ORDER[i];blip();drawSelect()};
+    keyMap={left:()=>mv(-1),right:()=>mv(1),ok:ask2,esc:()=>menu()};
+  }else{
+    say(s,`${RO(m.name)} 하겠느냐? 실제 가입할 때 다시 고를 수 있으니 편하게 골라 보거라.`,'연금박사',()=>{
+      choiceBox(s,['예','아니오'],i=>{if(i===0)obtain();else drawSelect()});
+    });
+    onAdvance=()=>{if(typing)skip()};
+  }
+}
+function obtain(){
+  const m=MONS[D.pick];P.pick=D.pick;clear('diag');
+  const s=scene('lab');monIn(s,m.id);s.append(el('<div class="flash"></div>'));jingle();
+  say(s,`${J(D.name,'은','는')} ${J(m.name,'을','를')} 받았다!`,'');
+  onAdvance=()=>{if(typing){skip();return}
+    const extra=D.pick!==D.rec?['내 추천과는 다르지만, 자네가 고른 파트너를 믿어 보마!']:[];
+    talk([...extra,m.after],{bg:'lab',fig:m.id},resultCard)};
+}
+function resultCard(){
+  const m=MONS[D.pick],r=MONS[D.rec];
+  const s=scene('lab');
+  const c=stop(el(`<div class="res"><div class="res-head"><div><div class="tag2">${''}</div><h2></h2></div></div>
+    <div class="chips"></div><div class="gw"><span class="who2">연금박사의 한마디</span><p class="guide"></p></div><ul class="fine"></ul>
+    <div class="row"><button class="btn gold" type="button" id="toForm">4. 제도선택하러 가기</button><button class="btn ghost" type="button" id="toMenu">메뉴로</button></div></div>`));
+  c.querySelector('.res-head').prepend(sprite(m.id,8));
+  c.querySelector('.tag2').textContent=`${D.name}의 파트너`;
+  c.querySelector('h2').textContent=m.name;
+  const sb=document.createElement('div');sb.className='tag2';sb.textContent=m.sub;c.querySelector('h2').after(sb);
+  const chips=c.querySelector('.chips');
+  const ch1=document.createElement('span');ch1.className='hot';ch1.textContent=`박사 추천: ${r.name}`;
+  const ch2=document.createElement('span');ch2.textContent=`내 응답: ${D.ans.map((a,i)=>`Q${i+1} ${a?'Y':'N'}`).join(' · ')}`;
+  chips.append(ch1,ch2);
+  c.querySelector('.guide').textContent=m.guide;
+  DIAG_NOTES.forEach(t=>{const li=document.createElement('li');li.textContent=t;c.querySelector('.fine').append(li)});
+  c.querySelector('#toForm').onclick=()=>{sel();formMode()};
+  c.querySelector('#toMenu').onclick=()=>{sel();menu()};
+  s.append(c);
+  keyMap={esc:()=>menu()};
+}
+
+/* ===== 4. 제도선택하기 ===== */
+function formMode(){
+  talk(['드디어 제도를 고를 시간이다!','최종 선택은 네이버 폼에 직접 기록한단다. 직번과 이름, 원하는 제도를 적어 주거라.'],{bg:'lab',fig:'prof'},()=>{
+    const s=scene('lab');
+    const c=stop(el(`<div class="card"><h2>제도선택하기</h2><div class="sum" style="display:flex;flex-direction:column;gap:6px;align-items:center"></div>
+      <p class="note">직번은 숫자 3~4자리로 적어 주세요. 응답은 예상 가입 규모 파악에만 쓰여요.</p>
+      <div class="row"><a class="btn gold" id="formLink" target="_blank" rel="noopener">네이버 폼 열기</a><button class="btn ghost" type="button" id="back">메뉴로</button></div>
+      <p class="note" id="formNote"></p></div>`));
+    const sum=c.querySelector('.sum');
+    if(P.pick){const row=el('<div style="display:flex;align-items:center;gap:10px"></div>');const sp=sprite(P.pick,5);sp.style.width='56px';sp.style.height='auto';row.append(sp);
+      const t=document.createElement('div');t.style.textAlign='left';t.style.fontSize='clamp(16px,2.8vw,20px)';
+      t.textContent=`내 파트너: ${MONS[P.pick].name}`+(P.rec?` (박사 추천: ${MONS[P.rec].name})`:'');row.append(t);sum.append(row)}
+    else{const t=document.createElement('p');t.className='note';t.textContent='아직 자가진단을 하지 않았어요. 3번 메뉴에서 나에게 맞는 제도를 먼저 알아볼 수 있어요.';sum.append(t)}
+    const a=c.querySelector('#formLink');
+    if(FORM_URL){a.href=FORM_URL;a.onclick=()=>{clear('form')}}
+    else{a.setAttribute('aria-disabled','true');c.querySelector('#formNote').textContent='시연판: 네이버 폼 링크를 받으면 이 버튼에 연결돼요.'}
+    c.querySelector('#back').onclick=()=>{sel();menu()};
+    s.append(c);
+    keyMap={esc:()=>menu()};
+  });
+}
+
+/* ===== input routing ===== */
+scr.addEventListener('click',()=>onAdvance&&onAdvance());
+document.addEventListener('keydown',e=>{
+  const tg=e.target.tagName;if(tg==='INPUT'||tg==='BUTTON'||tg==='A'||tg==='VIDEO')return;
+  const k=e.key;
+  if(keyMap){
+    const map={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',Escape:'esc'};
+    if(map[k]&&keyMap[map[k]]){keyMap[map[k]]();e.preventDefault();return}
+    if(map[k]==='left'&&keyMap.up){keyMap.up();e.preventDefault();return}
+    if(map[k]==='right'&&keyMap.down){keyMap.down();e.preventDefault();return}
+    if((k==='Enter'||k===' ')&&keyMap.ok&&!typing){keyMap.ok();e.preventDefault();return}
+  }
+  if(k===' '||k==='Enter'){e.preventDefault();onAdvance&&onAdvance()}
+});
+title();
+</script>
+
+</body>
+</html>
